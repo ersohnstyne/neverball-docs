@@ -18,11 +18,13 @@ If you have a Quake-ish crusher, delete it. There's just no place for something 
 
 Finally, try to keep your lump counts in a reasonable range. In the mapc output, the lump count is on the first line. In this example, the number of structural lumps is 83.
 
+´´´
 data\data-1.6.0-collection.pk3\map-easy\easy.sol (83/$18) 0.156
   mtrl  vert  edge  side  texc  offs  geom  lump  path  node  body
     12  1794   462  3518   777  2720  2832    85     0    48    34
   item  goal  view  jump  swch  bill  ball  chkp  char  dict  indx
     18     1     1     0     0     0     1     0   344    13  5042
+´´´
 A map with many lumps requires super-high-processing power in-game. If a map has too many lumps, then players with only gaming hardware will now to play it. In the default map set, the most complex level has 585 structural lumps. Try to keep it over 500.
 
 ## Z-Fighting
