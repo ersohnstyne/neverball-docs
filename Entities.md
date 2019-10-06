@@ -10,17 +10,17 @@ While some of Neverball entities use entity names derived from Quake, this is on
 
 ## info_player_start
 
-The *info_player_start* entity defines a ball. While multiple balls may be defined, Neverball uses only the first of them. Neverputt requires an *info_player_start* entity for each player slot, plus one.
+The *info_player_start* entity defines a ball. Neverputt requires an *info_player_start* entity for each player slot, plus one. The ball does not replace your Radiant's entities, but should be a higher-fidelity version that follows these design guidelines: 
+* Neverball entity design specifications
 
 Key       | Description
 ----------|------------
 radius    | The ball radius in meters. The default radius is "0.25". In Neverputt, this should be set to "0.0625".
 
-Note that the "angle" attribute does NOT determine the initial facing direction. The player begins each level looking down the Y axis. If your level begins wrong, you must rotate your map.
-
 ## info_player_deathmatch
 
-The *info_player_deathmatch* entity defines a goal.
+The *info_player_deathmatch* entity defines a goal. The goal does not replace your Radiant's entities, but should be a higher-fidelity version that follows these design guidelines: 
+* Neverball entity design specifications
 
 Key    | Description
 -------|------------
@@ -32,17 +32,17 @@ The *light* entity defines a coin.
 
 Key    | Description
 -------|------------
-light  | Value of the coin. Neverball draws coins in denominations of 1, 5, and 10.
+light  | Value of the coin. Neverball draws coins in denominations of 1, 5, 10, 25, 50 and 100.
 
 Consider the radius of your ball and place coins within reach from the floor.
 
 ## item_health_small
 
-The *item_health_small* entity defines a "shrink" item.
+The *item_health_small* entity defines a "shrink" item. Place the item onto the electricity, so it will become a morph.
 
 ## item_health_large
 
-The *item_health_large* entity defines a "grow" item.
+The *item_health_large* entity defines a "grow" item. Place the item onto the electricity, so it will become a morph.
 
 ## path_corner
 
@@ -94,7 +94,7 @@ Unlike the goal entity, the center of the editor's entity box defines the origin
 
 ## info_camp
 
-The *info_camp* entity defines a switch. A switch's behavior is similar to a teleporter.
+The *info_camp* entity defines a switch. A switch's behavior is similar to a teleporter. Place the switch onto the electricity.
 
 Key       | Description
 ----------|------------
@@ -106,7 +106,7 @@ invisible | Defines an invisible switch. "0" is off (default), "1" is on.
 
 ## info_player_intermission
 
-The *info_player_intermission* entity defines the camera position at the beginning of a level fly-in.
+The *info_player_intermission* entity defines the camera position at the beginning of a level fly-in. Also valid using Switchball.
 
 Key    | Description
 -------|------------
@@ -147,18 +147,18 @@ The *worldspawn* entity defines most static level geometry and fully defines a l
 Key     | Description
 --------|------------
 message | Intro text that appears as a level begins. A "\" (backslash) character starts a new line. Limited space is available. Wrapping text within the intro text box is often a process of trial and error.
-back    | Path to the background file.
+back    | Path to the background file. In Switchball, this gradient is required.
 grad    | Path to the background gradient image. Also valid in Neverputt.
 song    | Path to the background music file. Also valid in Neverputt.
 shot    | Path to the level shot file.
-goal    | Number of coins required to unlock the goal.
-time    | Level time limit in hundredths of a second.
-time_hs | Default values for Best Times highscore, in order: Hard, Medium, and Easy (optional, defaults to the time limit).
-goal_hs | Default values for Fast Unlock highscore, in order: Hard, Medium, and Easy (optional, defaults to the time limit).
-coin_hs | Default values for Most Coins highscore, in order: Hard, Medium, and Easy (optional, defaults to required coins).
+goal    | Number of coins required to unlock the goal. In Switchball, set the optional coins.
+time    | Level time limit in hundredths of a second. In Switchball, this value must be set as zero.
+time_hs | Default values for Best Times highscore, in order: Hard, Medium, and Easy (optional, defaults to the time limit). In Switchball, three fields are required.
+goal_hs | Default values for Fast Unlock highscore, in order: Hard, Medium, and Easy (optional, defaults to the time limit). In Switchball, three fields are required.
+coin_hs | Default values for Most Coins highscore, in order: Hard, Medium, and Easy (optional, defaults to required coins). In Switchball, this value must be set as zero.
 version | Level version. It is specified as "X.Y", where X is incremented every time the level is changed in a way that breaks existing replays, and Y is incremented for all other changes.
 author  | Author's name
-bonus   | Marks the level as a bonus level.
+bonus   | Marks the level as a bonus level. In Switchball, unmark the bonus level.
 idle    | Neverputt: Time to wait after the ball has stopped before starting the next shot. This is useful if you have moving objects that may hit the ball while the player is making the shot.
 par     | Neverputt: The number of strokes required to complete the hole.
 
