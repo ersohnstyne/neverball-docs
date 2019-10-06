@@ -147,9 +147,9 @@ The *worldspawn* entity defines most static level geometry and fully defines a l
 Key     | Description
 --------|------------
 message | Intro text that appears as a level begins. A "\" (backslash) character starts a new line. Limited space is available. Wrapping text within the intro text box is often a process of trial and error.
-back    | Path to the background file. In Switchball, this gradient is required.
-grad    | Path to the background gradient image. Also valid in Neverputt.
-song    | Path to the background music file. Also valid in Neverputt.
+back    | Path to the background file. In Switchball, fields are required.
+grad    | Path to the background gradient image. Also valid in Neverputt. In Switchball, fields are required.
+song    | Path to the background music file. Also valid in Neverputt. In Switchball, fields are required.
 shot    | Path to the level shot file.
 goal    | Number of coins required to unlock the goal. In Switchball, set the optional coins.
 time    | Level time limit in hundredths of a second. In Switchball, this value must be set as zero.
