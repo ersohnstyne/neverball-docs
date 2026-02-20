@@ -11,7 +11,7 @@ While some of Neverball entities use entity names derived from Quake, this is on
 ## info_player_start
 
 The *info_player_start* entity defines a ball. Neverputt requires an *info_player_start* entity for each player slot, plus one. The ball does not replace your Radiant's entities, but should be a higher-fidelity version that follows these design guidelines: 
-* Neverball entity design specifications
+* [Neverball entity design specifications](https://pennyball.stynegame.de/docs/internal/makeandplay/entitiesdesignspecifications)
 
 Key       | Description
 ----------|------------
@@ -20,7 +20,7 @@ radius    | The ball radius in meters. The default radius is "0.25". In Neverput
 ## info_player_deathmatch
 
 The *info_player_deathmatch* entity defines a goal. The goal does not replace your Radiant's entities, but should be a higher-fidelity version that follows these design guidelines: 
-* Neverball entity design specifications
+* [Neverball entity design specifications](https://pennyball.stynegame.de/docs/internal/makeandplay/entitiesdesignspecifications)
 
 Key    | Description
 -------|------------
