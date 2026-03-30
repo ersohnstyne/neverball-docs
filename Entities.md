@@ -25,14 +25,18 @@ The *info_player_deathmatch* entity defines a goal.
 Key    | Description
 -------|------------
 radius | Goal radius in meters. The default radius is "0.75". In Neverputt, this is usually set to "0.1375".
+target  | Refers to the first *path_corner* of the path along which the goal will travel.
+target2 | Refers to a second path that controls the orientation of the goal. This is useful when you want to control the position and orientation independently of each other.
 
 ## light
 
 The *light* entity defines a coin.
 
-Key    | Description
--------|------------
-light  | Value of the coin. Neverball draws coins in denominations of 1, 5, and 10.
+Key     | Description
+--------|------------
+light   | Value of the coin. Neverball draws coins in denominations of 1, 5, and 10.
+target  | Refers to the first *path_corner* of the path along which the item will travel.
+target2 | Refers to a second path that controls the orientation of the item. This is useful when you want to control the position and orientation independently of each other.
 
 Consider the radius of your ball and place coins within reach from the floor.
 
@@ -40,17 +44,29 @@ Consider the radius of your ball and place coins within reach from the floor.
 
 The *item_clock* entity defines a "clock" item.
 
-Key    | Description
--------|------------
-light  | Value of the clock. Neverball draws clocks in denominations of 5, 15, and 30. All units are in seconds.
+Key     | Description
+--------|------------
+light   | Value of the clock. Neverball draws clocks in denominations of 5, 15, and 30. All units are in seconds.
+target  | Refers to the first *path_corner* of the path along which the item will travel.
+target2 | Refers to a second path that controls the orientation of the item. This is useful when you want to control the position and orientation independently of each other.
 
 ## item_health_small
 
 The *item_health_small* entity defines a "shrink" item.
 
+Key     | Description
+--------|------------
+target  | Refers to the first *path_corner* of the path along which the item will travel.
+target2 | Refers to a second path that controls the orientation of the item. This is useful when you want to control the position and orientation independently of each other.
+
 ## item_health_large
 
 The *item_health_large* entity defines a "grow" item.
+
+Key     | Description
+--------|------------
+target  | Refers to the first *path_corner* of the path along which the item will travel.
+target2 | Refers to a second path that controls the orientation of the item. This is useful when you want to control the position and orientation independently of each other.
 
 ## path_corner
 
@@ -93,10 +109,12 @@ Note that *func_trains* are positioned differently in Neverball than in Quake. Q
 
 The *target_teleporter* entity defines a teleporter.
 
-Key    | Description
--------|------------
-radius | Teleporter radius. The default is "0.5".
-target | Refers to a *target_position* entity defining the destination of the teleporter.
+Key     | Description
+--------|------------
+radius  | Teleporter radius. The default is "0.5".
+target  | Refers to a *target_position* entity defining the destination of the teleporter.
+target2 | Refers to the first *path_corner* of the path along which the teleporter will travel.
+target3 | Refers to a second path that controls the orientation of the teleporter. This is useful when you want to control the position and orientation independently of each other.
 
 Unlike the goal entity, the center of the editor's entity box defines the origin. So to define a teleporter flush with the floor, embed the entity box halfway in the floor.
 
@@ -108,6 +126,8 @@ Key       | Description
 ----------|------------
 radius    | Switch radius. The default is "0.5".
 target    | Refers to the *path_corner* that the switch controls.
+target2   | Refers to the first *path_corner* of the path along which the switch will travel.
+target3   | Refers to a second path that controls the orientation of the switch. This is useful when you want to control the position and orientation independently of each other.
 state     | Intial state of the switch. "0" is off (default), "1" is on. This parallels the "state" attribute of the *path_corner*. An *info_camp* entity should always have the same initial "state" value as the *path_corner* it targets.
 timer     | A delay time. The time begins when the switch is toggled to its non-initial state. The switch toggles back to its initial state when the timer expires. A timer value of zero (default) indicates an untimed switch. This may be used to define a door that opens only for a moment before closing, or a *func_train* that moves along its path in discrete activated steps. The precision of this value is limited to milliseconds (three digits after the decimal point).
 invisible | Defines an invisible switch. "0" is off (default), "1" is on.
@@ -138,9 +158,11 @@ The *misc_model* entity imports an arbitrary polygonal model into a level. It ma
 
 *misc_model* entities define visible geometry, but not physical geometry. So, if the ball is to bounce off of a *misc_model* entity, the entity should be placed within one or more invisible structural lumps.
 
-Key   | Description
-------|------------
-model | Filename of the model relative to the data directory.
+Key     | Description
+--------|------------
+model   | Filename of the model relative to the data directory.
+target  | Refers to the first *path_corner* of the path along which the model will travel.
+target2 | Refers to a second path that controls the orientation of the model. This is useful when you want to control the position and orientation independently of each other.
 
 The model must be in OBJ format. It must have triangular tesselation. All vertices must have normals and texture coordinates. A 3D modeller such as Blender or Wings3D may be used to create and export OBJ models.
 
@@ -177,6 +199,11 @@ For portability, all filenames should use the "/" (forward slash) character as t
 ## info_null
 
 The *info_null* entity defines an animated billboard. Billboards are fundamental in the creation of backgrounds and ball skins, and are used to add visual details to a level. A description of *info_null* is available in the [background documentation](Backgrounds.md).
+
+Key     | Description
+--------|------------
+target  | Refers to the first *path_corner* of the path along which the billboard will travel.
+target2 | Refers to a second path that controls the orientation of the billboard. This is useful when you want to control the position and orientation independently of each other.
 
 ## Bodies
 
