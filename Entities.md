@@ -17,22 +17,38 @@ Key       | Description
 ----------|------------
 radius    | The ball radius in meters. The default radius is "0.25". In Neverputt, this should be set to "0.0625".
 
+## info_player_checkpoint
+
+The *info_player_checkpoint* entity defines a checkpoint. If it merely falls, Neverball respawns on the last location. Neverputt respawns the position in the last shot for each player slot plus one.
+
+Key     | Description
+--------|------------
+radius  | Checkpoint radius in meters. The default radius is "0.75".
+target  | Path that the goal will travel along, starting from the linked path_corner. Both position and rotation are controlled by this path.
+target2 | Optional: Second path controls the orientation of the train, but has no effect on position. This is useful when you want to control the position and orientation independently of each other.
+
+:warning: ***info_player_checkpoint requires only Pennyball 2.2.X or newer!***
+
 ## info_player_deathmatch
 
 The *info_player_deathmatch* entity defines a goal. The goal does not replace your Radiant's entities, but should be a higher-fidelity version that follows these design guidelines: 
 * [Neverball entity design specifications](https://pennyball.stynegame.de/docs/internal/makeandplay/entitiesdesignspecifications)
 
-Key    | Description
--------|------------
-radius | Goal radius in meters. The default radius is "0.75". In Neverputt, this is usually set to "0.1375".
+Key     | Description
+--------|------------
+radius  | Goal radius in meters. The default radius is "0.75". In Neverputt, this is usually set to "0.1375".
+target  | Path that the goal will travel along, starting from the linked path_corner. Both position and rotation are controlled by this path.
+target2 | Optional: Second path controls the orientation of the train, but has no effect on position. This is useful when you want to control the position and orientation independently of each other.
 
 ## light
 
 The *light* entity defines a coin.
 
-Key    | Description
--------|------------
-light  | Value of the coin. Neverball draws coins in denominations of 1, 5, 10, 25, 50 and 100.
+Key     | Description
+--------|------------
+light   | Value of the coin. Neverball draws coins in denominations of 1, 5, 10, 25, 50 and 100.
+target  | Path that the coin will travel along, starting from the linked path_corner. Both position and rotation are controlled by this path.
+target2 | Optional: Second path controls the orientation of the train, but has no effect on position. This is useful when you want to control the position and orientation independently of each other.
 
 Consider the radius of your ball and place coins within reach from the floor.
 
@@ -40,17 +56,29 @@ Consider the radius of your ball and place coins within reach from the floor.
 
 The *item_clock* entity defines a "clock" item.
 
-Key    | Description
--------|------------
-light  | Value of the clock. Neverball draws clocks in denominations of 5, 15, and 30. All units are in seconds.
+Key     | Description
+--------|------------
+light   | Value of the clock. Neverball draws clocks in denominations of 5, 15, and 30. All units are in seconds.
+target  | Path that the clock item will travel along, starting from the linked path_corner. Both position and rotation are controlled by this path.
+target2 | Optional: Second path controls the orientation of the train, but has no effect on position. This is useful when you want to control the position and orientation independently of each other.
 
 ## item_health_small
 
 The *item_health_small* entity defines a "shrink" item. Place the item onto the electricity, so it will become a morph.
 
+Key     | Description
+--------|------------
+target  | Path that the shrink item will travel along, starting from the linked path_corner. Both position and rotation are controlled by this path.
+target2 | Optional: Second path controls the orientation of the train, but has no effect on position. This is useful when you want to control the position and orientation independently of each other.
+
 ## item_health_large
 
 The *item_health_large* entity defines a "grow" item. Place the item onto the electricity, so it will become a morph.
+
+Key     | Description
+--------|------------
+target  | Path that the grow item will travel along, starting from the linked path_corner. Both position and rotation are controlled by this path.
+target2 | Optional: Second path controls the orientation of the train, but has no effect on position. This is useful when you want to control the position and orientation independently of each other.
 
 ## path_corner
 
@@ -93,10 +121,12 @@ Note that *func_trains* are positioned differently in Neverball than in Quake. Q
 
 The *target_teleporter* entity defines a teleporter.
 
-Key    | Description
--------|------------
-radius | Teleporter radius. The default is "0.5".
-target | Refers to a *target_position* entity defining the destination of the teleporter.
+Key     | Description
+--------|------------
+radius  | Teleporter radius. The default is "0.5".
+target  | Refers to a *target_position* entity defining the destination of the teleporter.
+target2 | Path that the teleporter will travel along, starting from the linked path_corner. Both position and rotation are controlled by this path.
+target3 | Optional: Second path controls the orientation of the train, but has no effect on position. This is useful when you want to control the position and orientation independently of each other.
 
 Unlike the goal entity, the center of the editor's entity box defines the origin. So to define a teleporter flush with the floor, embed the entity box halfway in the floor.
 
@@ -108,6 +138,8 @@ Key       | Description
 ----------|------------
 radius    | Switch radius. The default is "0.5".
 target    | Refers to the *path_corner* that the switch controls.
+target2   | Path that the switch will travel along, starting from the linked path_corner. Both position and rotation are controlled by this path.
+target3   | Optional: Second path controls the orientation of the train, but has no effect on position. This is useful when you want to control the position and orientation independently of each other.
 state     | Intial state of the switch. "0" is off (default), "1" is on. This parallels the "state" attribute of the *path_corner*. An *info_camp* entity should always have the same initial "state" value as the *path_corner* it targets.
 timer     | A delay time. The time begins when the switch is toggled to its non-initial state. The switch toggles back to its initial state when the timer expires. A timer value of zero (default) indicates an untimed switch. This may be used to define a door that opens only for a moment before closing, or a *func_train* that moves along its path in discrete activated steps. The precision of this value is limited to milliseconds (three digits after the decimal point).
 invisible | Defines an invisible switch. "0" is off (default), "1" is on.
@@ -138,9 +170,10 @@ The *misc_model* entity imports an arbitrary polygonal model into a level. It ma
 
 *misc_model* entities define visible geometry, but not physical geometry. So, if the ball is to bounce off of a *misc_model* entity, the entity should be placed within one or more invisible structural lumps.
 
-Key   | Description
-------|------------
-model | Filename of the model relative to the data directory.
+Key    | Description
+-------|------------
+model  | Filename of the model relative to the data directory.
+target | Path that the model will travel along, starting from the linked path_corner. Both position and rotation are controlled by this path.
 
 The model must be in OBJ format. It must have triangular tesselation. All vertices must have normals and texture coordinates. A 3D modeller such as Blender or Wings3D may be used to create and export OBJ models.
 
@@ -155,9 +188,9 @@ The *worldspawn* entity defines most static level geometry and fully defines a l
 Key     | Description
 --------|------------
 message | Intro text that appears as a level begins. A "\" (backslash) character starts a new line. Limited space is available. Wrapping text within the intro text box is often a process of trial and error.
-back    | Path to the background file. In Switchball, fields are required.
-grad    | Path to the background gradient image. Also valid in Neverputt. In Switchball, fields are required.
-song    | Path to the background music file. Also valid in Neverputt. In Switchball, fields are required.
+back    | Path to the background file. In Switchball, this field required.
+grad    | Path to the background gradient image. Also valid in Neverputt. In Switchball, this field are required.
+song    | Path to the background music file. Also valid in Neverputt. In Switchball, this field are required.
 shot    | Path to the level shot file.
 goal    | Number of coins required to unlock the goal. In Switchball, set the optional coins.
 time    | Level time limit in hundredths of a second. In Switchball, this value must be set as zero.
@@ -177,6 +210,11 @@ For portability, all filenames should use the "/" (forward slash) character as t
 ## info_null
 
 The *info_null* entity defines an animated billboard. Billboards are fundamental in the creation of backgrounds and ball skins, and are used to add visual details to a level. A description of *info_null* is available in the [background documentation](Backgrounds.md).
+
+Key     | Description
+--------|------------
+target  | Path that the billboard will travel along, starting from the linked path_corner. Both position and rotation are controlled by this path.
+target2 | Optional: Second path controls the orientation of the train, but has no effect on position. This is useful when you want to control the position and orientation independently of each other.
 
 ## Bodies
 
