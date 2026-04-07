@@ -208,7 +208,7 @@ time_hs | Default values for Best Times highscore, in order: Hard, Medium, and E
 goal_hs | Default values for Fast Unlock highscore, in order: Hard, Medium, and Easy (optional, defaults to the time limit). In Switchball, three fields are required.
 coin_hs | Default values for Most Coins highscore, in order: Hard, Medium, and Easy (optional, defaults to required coins). In Switchball, three fields are required.
 version | Level version. It is specified as "X.Y", where X is incremented every time the level is changed in a way that breaks existing replays, and Y is incremented for all other changes.
-author  | Author's name. This level must sign the level prior to the official classic campaign.
+author  | Author's name. This level must sign prior to the official classic campaign.
 bonus   | Marks the level as a bonus level.
 idle    | Neverputt: Time to wait after the ball has stopped before starting the next shot. This is useful if you have moving objects that may hit the ball while the player is making the shot.
 par     | Neverputt: The number of strokes required to complete the hole.
