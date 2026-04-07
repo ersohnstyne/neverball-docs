@@ -10,14 +10,12 @@ While some of Neverball entities use entity names derived from Quake, this is on
 
 ## info_player_start
 
-The *info_player_start* entity defines a ball. Neverputt requires an *info_player_start* entity for each player slot, plus one. The ball does not replace your Radiant's entities, but should be a higher-fidelity version that follows these design guidelines: 
+The *info_player_start* entity defines a ball. Neverputt requires an *info_player_start* entity for each player slot, plus one. This doesn't replace your Radiant's entities, but should be a higher-fidelity version that follows these design guidelines: 
 * [Neverball entity design specifications](https://pennyball.stynegame.de/docs/internal/makeandplay/entitiesdesignspecifications)
 
-Key       | Description
-----------|------------
-radius    | The ball radius in meters. The default radius is "0.25". In Neverputt, this should be set to "0.0625".
-
-Note that the "angle" attribute does NOT determine the initial facing direction. The player begins each level looking down the Y axis. If your level begins wrong, you must rotate your map.
+Key    | Description
+-------|------------
+radius | The ball radius in meters. The default radius is "0.25". In Neverputt, this should be set to "0.0625".
 
 ## info_player_checkpoint
 
@@ -30,18 +28,18 @@ Key     | Description
 --------|------------
 radius  | Checkpoint radius in meters. The default radius is "0.75".
 target  | Path that the checkpoint will travel along, starting from the linked *path_corner*. Both position and rotation are controlled by this path.
-target2 | Optional: Second path controls the orientation of the train, but has no effect on position. This is useful when you want to control the position and orientation independently of each other.
+target2 | Refers to a second path that controls the orientation of the goal. This is useful when you want to control the position and orientation independently of each other.
 
 :warning: ***info_player_checkpoint requires only Pennyball 2.2.X or newer!***
 
 ## info_player_deathmatch
 
-The *info_player_deathmatch* entity defines a goal. The goal does not replace your Radiant's entities, but should be a higher-fidelity version that follows these design guidelines: 
+The *info_player_deathmatch* entity defines a goal. This doesn't replace your Radiant's entities, but should be a higher-fidelity version that follows these design guidelines: 
 * [Neverball entity design specifications](https://pennyball.stynegame.de/docs/internal/makeandplay/entitiesdesignspecifications)
 
-Key    | Description
--------|------------
-radius | Goal radius in meters. The default radius is "0.75". In Neverputt, this is usually set to "0.1375".
+Key     | Description
+--------|------------
+radius  | Goal radius in meters. The default radius is "0.75". In Neverputt, this is usually set to "0.1375".
 target  | Refers to the first *path_corner* of the path along which the goal will travel.
 target2 | Refers to a second path that controls the orientation of the goal. This is useful when you want to control the position and orientation independently of each other.
 
@@ -69,7 +67,8 @@ target2 | Refers to a second path that controls the orientation of the item. Thi
 
 ## item_health_small
 
-The *item_health_small* entity defines a "shrink" item. Place the item onto the electricity, so it will become a morph.
+The *item_health_small* entity defines a "shrink" item. This doesn't replace your Radiant's entities, but should be a higher-fidelity version that follows these design guidelines: 
+* [Neverball entity design specifications](https://pennyball.stynegame.de/docs/internal/makeandplay/entitiesdesignspecifications)
 
 Key     | Description
 --------|------------
@@ -78,7 +77,8 @@ target2 | Refers to a second path that controls the orientation of the item. Thi
 
 ## item_health_large
 
-The *item_health_large* entity defines a "grow" item. Place the item onto the electricity, so it will become a morph.
+The *item_health_large* entity defines a "grow" item. This doesn't replace your Radiant's entities, but should be a higher-fidelity version that follows these design guidelines: 
+* [Neverball entity design specifications](https://pennyball.stynegame.de/docs/internal/makeandplay/entitiesdesignspecifications)
 
 Key     | Description
 --------|------------
@@ -87,7 +87,8 @@ target2 | Refers to a second path that controls the orientation of the item. Thi
 
 ## path_corner
 
-The *path_corner* entity defines a path segment of a moving object.
+The *path_corner* entity defines a path segment of a moving object. This doesn't replace your Radiant's entities, but should be a higher-fidelity version that follows these design guidelines: 
+* [Neverball entity design specifications](https://pennyball.stynegame.de/docs/internal/makeandplay/entitiesdesignspecifications)
 
 Key        | Description
 -----------|------------
@@ -105,7 +106,8 @@ Note that the "speed" attribute has a different meaning to Neverball than it doe
 
 ## func_train
 
-The *func_train* entity defines the geometry of a moving object. Think of it as a container or a grouping mechanism for lumps, rather than an object in-and-of itself.
+The *func_train* entity defines the geometry of a moving object. This doesn't replace your Radiant's entities, but should be a higher-fidelity version that follows these design guidelines: 
+* [Neverball entity design specifications](https://pennyball.stynegame.de/docs/internal/makeandplay/entitiesdesignspecifications)
 
 Key     | Description
 --------|------------
@@ -124,7 +126,8 @@ Note that *func_trains* are positioned differently in Neverball than in Quake. Q
 
 ## target_teleporter
 
-The *target_teleporter* entity defines a teleporter.
+The *target_teleporter* entity defines a teleporter. This doesn't replace your Radiant's entities, but should be a higher-fidelity version that follows these design guidelines: 
+* [Neverball entity design specifications](https://pennyball.stynegame.de/docs/internal/makeandplay/entitiesdesignspecifications)
 
 Key     | Description
 --------|------------
@@ -137,7 +140,8 @@ Unlike the goal entity, the center of the editor's entity box defines the origin
 
 ## info_camp
 
-The *info_camp* entity defines a switch. A switch's behavior is similar to a teleporter.
+The *info_camp* entity defines a switch. This doesn't replace your Radiant's entities, but should be a higher-fidelity version that follows these design guidelines: 
+* [Neverball entity design specifications](https://pennyball.stynegame.de/docs/internal/makeandplay/entitiesdesignspecifications)
 
 Key       | Description
 ----------|------------
@@ -175,11 +179,11 @@ The *misc_model* entity imports an arbitrary polygonal model into a level. It ma
 
 *misc_model* entities define visible geometry, but not physical geometry. So, if the ball is to bounce off of a *misc_model* entity, the entity should be placed within one or more invisible structural lumps.
 
-Key    | Description
--------|------------
-model  | Filename of the model relative to the data directory.
-target | Path that the model will travel along, starting from the linked *path_corner*. Both position and rotation are controlled by this path.
-target2 | Optional: Second path controls the orientation of the train, but has no effect on position. This is useful when you want to control the position and orientation independently of each other.
+Key     | Description
+--------|------------
+model   | Filename of the model relative to the data directory.
+target  | Path that the model will travel along, starting from the linked *path_corner*. Both position and rotation are controlled by this path.
+target2 | Refers to a second path that controls the orientation of the goal. This is useful when you want to control the position and orientation independently of each other.
 
 The model must be in OBJ format. It must have triangular tesselation. All vertices must have normals and texture coordinates. A 3D modeller such as Blender or Wings3D may be used to create and export OBJ models.
 
@@ -221,11 +225,6 @@ Key     | Description
 --------|------------
 target  | Refers to the first *path_corner* of the path along which the billboard will travel.
 target2 | Refers to a second path that controls the orientation of the billboard. This is useful when you want to control the position and orientation independently of each other.
-
-Key     | Description
---------|------------
-target  | Path that the billboard will travel along, starting from the linked *path_corner*. Both position and rotation are controlled by this path.
-target2 | Optional: Second path controls the orientation of the train, but has no effect on position. This is useful when you want to control the position and orientation independently of each other.
 
 ## Bodies
 
