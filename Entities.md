@@ -28,7 +28,7 @@ Key     | Description
 --------|------------
 radius  | Checkpoint radius in meters. The default radius is "0.75".
 target  | Path that the checkpoint will travel along, starting from the linked *path_corner*. Both position and rotation are controlled by this path.
-target2 | Refers to a second path that controls the orientation of the goal. This is useful when you want to control the position and orientation independently of each other.
+target2 | Refers to a second path that controls the orientation of the checkpoint. This is useful when you want to control the position and orientation independently of each other.
 
 :warning: ***info_player_checkpoint requires only Pennyball 2.2.X or newer!***
 
@@ -183,7 +183,7 @@ Key     | Description
 --------|------------
 model   | Filename of the model relative to the data directory.
 target  | Path that the model will travel along, starting from the linked *path_corner*. Both position and rotation are controlled by this path.
-target2 | Refers to a second path that controls the orientation of the goal. This is useful when you want to control the position and orientation independently of each other.
+target2 | Refers to a second path that controls the orientation of the model. This is useful when you want to control the position and orientation independently of each other.
 
 The model must be in OBJ format. It must have triangular tesselation. All vertices must have normals and texture coordinates. A 3D modeller such as Blender or Wings3D may be used to create and export OBJ models.
 
