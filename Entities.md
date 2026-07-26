@@ -15,7 +15,7 @@ The *info_player_start* entity defines a ball. Neverputt requires an *info_playe
 
 Key    | Description
 -------|------------
-radius | The ball radius in meters. The default radius is "0.25". In Neverputt, this should be set to "0.0625".
+radius | The ball radius in meters. The default radius is "0.25". Values can't be negative. In Neverputt, this should be set to "0.0625".
 
 ## info_player_checkpoint
 
@@ -26,7 +26,7 @@ The checkpoint does not replace your Radiant's entities, but should be a higher-
 
 Key     | Description
 --------|------------
-radius  | Checkpoint radius in meters. The default radius is "0.75".
+radius  | Checkpoint radius in meters. The default radius is "0.75". Values can't be negative.
 target  | Path that the checkpoint will travel along, starting from the linked *path_corner*. Both position and rotation are controlled by this path.
 target2 | Refers to a second path that controls the orientation of the checkpoint. This is useful when you want to control the position and orientation independently of each other.
 
@@ -39,7 +39,7 @@ The *info_player_deathmatch* entity defines a goal. This doesn't replace your Ra
 
 Key     | Description
 --------|------------
-radius  | Goal radius in meters. The default radius is "0.75". In Neverputt, this is usually set to "0.1375".
+radius  | Goal radius in meters. The default radius is "0.75". Values can't be negative. In Neverputt, this is usually set to "0.1375".
 target  | Refers to the first *path_corner* of the path along which the goal will travel.
 target2 | Refers to a second path that controls the orientation of the goal. This is useful when you want to control the position and orientation independently of each other.
 
@@ -131,7 +131,7 @@ The *target_teleporter* entity defines a teleporter. This doesn't replace your R
 
 Key     | Description
 --------|------------
-radius  | Teleporter radius. The default is "0.5".
+radius  | Teleporter radius. The default is "0.5". Values can't be negative.
 target  | Refers to a *target_position* entity defining the destination of the teleporter.
 target2 | Refers to the first *path_corner* of the path along which the teleporter will travel.
 target3 | Refers to a second path that controls the orientation of the teleporter. This is useful when you want to control the position and orientation independently of each other.
@@ -145,7 +145,7 @@ The *info_camp* entity defines a switch. This doesn't replace your Radiant's ent
 
 Key       | Description
 ----------|------------
-radius    | Switch radius. The default is "0.5".
+radius    | Switch radius. The default is "0.5". Values can't be negative.
 target    | Refers to the *path_corner* that the switch controls.
 target2   | Refers to the first *path_corner* of the path along which the switch will travel.
 target3   | Refers to a second path that controls the orientation of the switch. This is useful when you want to control the position and orientation independently of each other.
