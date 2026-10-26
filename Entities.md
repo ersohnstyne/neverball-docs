@@ -181,7 +181,7 @@ The *misc_model* entity imports an arbitrary polygonal model into a level. It ma
 
 Key     | Description
 --------|------------
-model   | Filename of the model relative to the data directory.
+model   | Filename of the model relative to the data directory. The model must be in OBJ format authored in TrenchBroom map coordinates (64 units = 1 meter).
 target  | Path that the model will travel along, starting from the linked *path_corner*. Both position and rotation are controlled by this path.
 target2 | Refers to a second path that controls the orientation of the model. This is useful when you want to control the position and orientation independently of each other.
 
